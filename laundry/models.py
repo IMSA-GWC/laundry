@@ -42,7 +42,7 @@ class Machine(models.Model):
         self.time_start = timezone.now()
         self.save()
     def __str__(self):
-        return self.hall + self.side
+        return self.hall + self.side + machine_type
     
 
 class Queue_Entry(models.Model):

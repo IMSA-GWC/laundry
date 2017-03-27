@@ -10,4 +10,4 @@ def home_page(request):
 
 def hall_page(request, hall):
     hall_machine = Machine.objects.filter(hall__exact = hall)
-    return render(request, 'laundry/hall_page.html', {'halls': hall_machine})
+    return render(request, 'laundry/hall_page.html', {'machines': hall_machine})

@@ -8,10 +8,10 @@
     <p><a class="btn btn-primary btn-lg" href="#" role="button">Get Started</a></p>
   </div>
   <div>
-  	{% for hall in halls %}
-  		<p>{{ hall }}</p>
-  		<p> {{ hall.availabilities }}
-  		<p> {{ hall.time_start }} </p>
+  	{% for machine in machines %}
+  		<p>{{ machine }}</p>
+  		<p> {{ machine.availabilities }}
+  		<p> {{ machine.time_start }} </p>
   	{% endfor %}
   </div>
 {% endblock %}
