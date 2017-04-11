@@ -21,7 +21,7 @@ def user_new(request):
 		if form.is_valid():
 			new_user = User.objects.create_user(**form.cleaned_data)
 			#login(new_user)
-			#return redirect('home_page')
+			return redirect('home_page')
 	else:
 		form = UserForm()
 	return render(request, 'laundry/user_edit.html', {'form':form})
