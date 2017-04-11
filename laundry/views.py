@@ -20,8 +20,18 @@ def user_new(request):
 		form = UserForm(request.POST)
 		if form.is_valid():
 			new_user = User.objects.create_user(**form.cleaned_data)
-			#login(new_user)
+			login(request, new_user)
 			return redirect('home_page')
 	else:
 		form = UserForm()
 	return render(request, 'laundry/user_edit.html', {'form':form})
+
+def user_login(request):
+	username = request.POST['username']
+	password = request.POST['password']
+	user = authenticate(request, username=username, password=password)
+	if user is not None:
+		login(request,user)
+		return redirect('home_page')
+	else:
+		return #error message, invalid login
