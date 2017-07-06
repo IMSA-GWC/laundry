@@ -4,7 +4,7 @@ from .models import Machine, Queue_Entry
 from django.contrib.auth.decorators import login_required
 from .forms import UserForm, QueueForm, UserLogin
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
@@ -38,6 +38,9 @@ def user_new(request):
 		form = UserForm()
 	return render(request, 'laundry/user_edit.html', {'form':form})
 
+def user_error(request):
+	return render(request, 'laundry/user_error.html')
+	
 def user_login(request):
 	if request.method == "POST":
 		username = request.POST['username']
@@ -47,6 +50,12 @@ def user_login(request):
 			login(request,user)
 			return redirect('home_page')
 		#ADD REDIRECT TO USER NOT FOUND PAGE
+		else:
+			return redirect('user_error')
 	else:
 		form = UserLogin()
 	return render(request, 'laundry/user_login.html', {'form':form})
+	
+def user_logout(request):
+	logout(request)
+	return render(request, 'laundry/user_logout.html')
