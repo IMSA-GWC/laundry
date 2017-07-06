@@ -35,7 +35,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">My Laundry</a></li>
-            <li><a href="{% url 'user_login' %}">Login</a></li>
+            <li>{% if user.is_authenticated %}Welcome, {{ user.username}}. {% else %}<a href="{% url 'user_login' %}">Login</a>{% endif %}</li>
+			
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

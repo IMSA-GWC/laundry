@@ -13,5 +13,17 @@
   		<p> {{ hall.availabilities }}
   		<p> {{ hall.time_start }} </p>
   	{% endfor %}
+	
+	<h3>Queue</h3>
+	{% for entry in queue %}
+		<p> {{ entry.machine }} </p>
+		<p> {{ entry }} </p>
+		<p> {{ entry.user }} </p>
+		<p> {{ entry.created_date }} {{ entry.start_time }} </p>
+	{% endfor %}
+	
+	<h3>Add an entry:</h3>
+	{{ form }}
+	<button type="submit" class="save btn btn-default">Save</button>
   </div>
 {% endblock %}
