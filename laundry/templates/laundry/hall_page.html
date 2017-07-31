@@ -9,8 +9,9 @@
   </div>
   <div>
   	{% for machine in machines %}
-  		<p>{{ machine }}</p>
-  		<p> {{ machine.availabilities }}
+      <p> {{machine.machine_type}}</p>
+      <p> {{machine.side}}</p>
+  		<p> {{ machine.availabilities }}</p>
   		<p> {{ machine.time_start }} </p>
   	{% endfor %}
   </div>
